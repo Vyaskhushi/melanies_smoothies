@@ -48,13 +48,14 @@ if ingredients_list:
     # st.write(ingredients_string)
     import requests
     smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-    st.text(smoothiefroot_response)
-    time_to_insert = st.button('Submit Order')
+    #st.text(smoothiefroot_response)
+    st_df = st.dataframe(data = smoothiefroont_response.json(), use_container_width = True)
+    # time_to_insert = st.button('Submit Order')
 
-    if time_to_insert:
-       session.sql(my_insert_stmt).collect()
+    # if time_to_insert:
+    #    session.sql(my_insert_stmt).collect()
         
-       st.success(f'Your Smoothie is ordered!,{name_on_order}', icon="✅") 
+    #    st.success(f'Your Smoothie is ordered!,{name_on_order}', icon="✅") 
     
     st.stop()
 
